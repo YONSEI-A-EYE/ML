@@ -14,14 +14,6 @@ app = FastAPI()
 
 file_path = ''
 
-@app.get("/")
-def home():
-    return "BABY FALL DETECTOR HOME PAGE"
-
-@app.get("/video")
-async def video():
-    return StreamingResponse(baby_monitor(), media_type="multipart/x-mixed-replace; boundary=frame")
-
 
 def baby_monitor():
     global file_path
