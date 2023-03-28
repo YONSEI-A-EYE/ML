@@ -1,16 +1,10 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import StreamingResponse
 import cv2
-import uvicorn
 import time
-from datetime import date, timedelta
 import mediapipe as mp
 
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_pose = mp.solutions.pose
-
-app = FastAPI()
 
 file_path = ''
 
@@ -57,7 +51,7 @@ def baby_monitor():
                                 cx, cy = int(lm.x*w), int(lm.y * h)
                                 lms.append((cx, cy))
                             positions.append(lms)
-                            '''
+                            """
                             # Write Coordinates of left ear to file
                             with open('./landmark/leftEar.txt', 'a') as f:
                                 f.write(str(positions[idx][7]))
@@ -67,7 +61,7 @@ def baby_monitor():
                             with open('./landmark/rightEar.txt', 'a') as f:
                                 f.write(str(positions[idx][8]))
                                 f.write("\n")
-                            '''
+                            """
                             idx+=1
 
                         # Time
@@ -96,6 +90,3 @@ def baby_monitor():
         cam.release()
         
     return result
-
-#if __name__ == '__main__':
-#    uvicorn.run(app, host='127.0.0.1', port=8000)

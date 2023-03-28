@@ -15,7 +15,7 @@ left_ear = []
 idx = 0
 result = ''
 
-video_path = '../../video/a-eye_test.mp4'
+video_path = '../video/a-eye_test.mp4'
 #'./video/a-eye_test_before_fall.mp4'
 #'./video/a-eye_test.mp4' -- (720, 1280)
 #'./video/a-eye_test_2_before_fall.mp4'
