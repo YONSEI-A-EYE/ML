@@ -11,7 +11,7 @@ file_path = ''
 
 def baby_monitor():
     global file_path
-
+    result = False
     # process input from webcam or video file
     if file_path != '':
 
@@ -72,10 +72,8 @@ def baby_monitor():
                             if idx > 0:
                                 # Left Leg coordinate - left ear coordinate
                                 left_diff = positions[idx-1][27][1] - positions[idx-1][7][1]
-                                #right_diff = positions[idx-1][28][1] - positions[idx-1][8][1]
                                 if left_diff>-60 and left_diff<60:
-                                    # print(f"{left_diff} : DETECT BABY FALL!!")
-                                    result = "DETECT BABY FALL!!"
+                                    result = True
                                     break
                                 
                         # result show
