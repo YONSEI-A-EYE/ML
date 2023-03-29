@@ -323,3 +323,6 @@ pyrightconfig.json
 fcm-secret.json
 .idea
 # End of https://www.toptal.com/developers/gitignore/api/macos,pycharm,python
+
+#pyc file
+*.pyc
