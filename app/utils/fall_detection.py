@@ -78,8 +78,8 @@ def baby_monitor():
                                     result = True
                                     break
                                 
-                        # result show
-                        cv2.imshow('A-EYE', image) #cv2.flip(image, 1)
+                        # # result show
+                        # cv2.imshow('A-EYE', image) #cv2.flip(image, 1)
 
                         if cv2.waitKey(5) & 0xFF == ord('q'):
                             break
