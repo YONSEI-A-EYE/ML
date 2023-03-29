@@ -13,17 +13,20 @@ file_path = f"{current_working_directory}/video/a-eye_test.mp4"
 
 def baby_monitor():
     global file_path
+
     result = False
+    time_passed = 0
+    start = time.time()
+    positions = [] #append (x,y) corrdinate to list
+    idx = 0
+
     # process input from webcam or video file
-    if file_path != '':
+    
+    try : #if raspberry cam is detected  
+        cam = cv2.VideoCapture(0)
 
+    except: #else : video file
         cam = cv2.VideoCapture(file_path)
-
-        time_passed = 0
-        start = time.time()
-        positions = [] #append (x,y) corrdinate to list
-        idx = 0
-        result = ''
 
         with mp_pose.Pose(
             min_detection_confidence=0.5,
@@ -53,17 +56,6 @@ def baby_monitor():
                                 cx, cy = int(lm.x*w), int(lm.y * h)
                                 lms.append((cx, cy))
                             positions.append(lms)
-                            """
-                            # Write Coordinates of left ear to file
-                            with open('./landmark/leftEar.txt', 'a') as f:
-                                f.write(str(positions[idx][7]))
-                                f.write("\n")
-
-                            # Write Coordinates of right ear to file
-                            with open('./landmark/rightEar.txt', 'a') as f:
-                                f.write(str(positions[idx][8]))
-                                f.write("\n")
-                            """
                             idx+=1
 
                         # Time
