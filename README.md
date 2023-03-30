@@ -23,7 +23,11 @@ Once you're there, you can install the required dependencies for the project by 
 pip install -r requirements.txt
 ```
 
-### 3. Start Application
+### 3. Set `fcm-secret.json` file
+Create a file called `fcm-secret.json` in the ML/app/ directory of the project. 
+This file should contain **Firebase Admin SDK secret key**.
+
+### 4. Start Application
 ```
 uvicorn main:app --reload
 ```
